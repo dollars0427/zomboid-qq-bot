@@ -94,15 +94,14 @@ async function _checkStatus(senderId, messageType){
 
 async function _startServer(senderId, messageType){
   const startResult = await Aws.startServer(request, config);
-  let content = '僵毀伺服器正在啟動。需時大約3-5分鐘左右，如在那之後仍未成功，可能是出問題惹(´･ω･`) ';
-
+  let content = '僵毀伺服器正在啟動。需時大約3-5分鐘左右！';
   QQ.sendMessage(request, senderId, messageType, content).then((result) => {
     console.log(result);
   });
 }
 
 async function _stopServer(senderId, messageType){
-  const startResult = await Aws.stopServer(request, config);
+  const stopResult = await Aws.stopServer(request, config);
   let content = '僵毀伺服器正在關閉。晚安✧*｡٩(ˊᗜˋ*)و✧*｡ ';
 
   QQ.sendMessage(request, senderId, messageType, content).then((result) => {
