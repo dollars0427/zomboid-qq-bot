@@ -32,6 +32,10 @@ app.use(async ctx => {
       _getHelp(senderId, messageType);
       break;
 
+      case 'info':
+      _getInfo(senderId, messageType);
+      break;
+
       case 'status':
       _checkStatus(senderId, messageType);
       break;
@@ -97,6 +101,21 @@ async function _startServer(senderId, messageType){
 async function _stopServer(senderId, messageType){
   const startResult = await Aws.stopServer(request, config);
   let content = '僵毀伺服器正在關閉。晚安✧*｡٩(ˊᗜˋ*)و✧*｡ ';
+
+  QQ.sendMessage(request, senderId, messageType, content).then((result) => {
+    console.log(result);
+  });
+}
+
+function _getInfo(senderId, messageType){
+  const serverInfo = config['serverInfo'];
+  const serverIp = serverInfo['serverIp'];
+  const serverDomain = serverInfo['serverDomain'];
+  const serverPort = serverInfo['serverPort'];
+
+  let content = '伺服器資訊(手動更新)：';
+  content += `\n伺服器位址：${serverDomain} / ${serverIp}`;
+  content += `\n伺服器端口：${serverPort}`;
 
   QQ.sendMessage(request, senderId, messageType, content).then((result) => {
     console.log(result);
