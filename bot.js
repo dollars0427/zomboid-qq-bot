@@ -66,7 +66,10 @@ app.listen(2022);
 
 function _getHelp(senderId, messageType){
   let content = '目前指令：';
+  content += '\n /info 查看伺服器訊息';
   content += '\n /status 檢查伺服器狀態';
+  content += '\n /start 啟動伺服器';
+  content += '\n /stop 停止伺服器';
   content += '\n /roll (骰子數量)d(骰子面數) 擲骰功能。範例：1顆100面的骰子= 1d100';
   content += '\n /choose (選項) 睡鼠老師，幫我選擇！格式範例：選項1|選項2。建議小窗使用。';
   QQ.sendMessage(request, senderId, messageType, content).then((result) => {
