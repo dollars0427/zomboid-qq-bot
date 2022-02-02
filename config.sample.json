@@ -1,4 +1,5 @@
 {
-  "awsAccessKeyId": "Your AWS Access Key ID",
-  "awsAccessKey": "Your AWS Access Key"
+  "checkStatusAPI": "API URL for check EC2 status",
+  "startEC2API": "API URL for start EC2",
+  "stopEC2API": "API URL for stop EC2"
 }
